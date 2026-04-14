@@ -2,17 +2,18 @@
   "name": "servidor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "startDev": "nodemon index.js"
+    "startDev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "pg": "^8.20.0"
   }
 }
