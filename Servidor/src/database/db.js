@@ -17,7 +17,7 @@ client.connect()
 
 client.query(`SELECT * FROM  equipamentos`, (err, res) => {
     if (!err){
-        console.log(res.rows);
+        console.log("DataBase connected successfully");
 
     }else{
         console.log(err.message);

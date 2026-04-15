@@ -1,7 +1,7 @@
 import {registerAsset} from "../models/registerAsset.js";
 
 //Controller function to handle asset registration requests
-export async function registerAssetController(req, res) {
+export default async function registerAssetController(req, res) {
   try {
     const assetData = req.body;
     await registerAsset(assetData);

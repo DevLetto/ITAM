@@ -9,7 +9,7 @@ import express from "express";
 const app = express();
 const port = 8080;
 
-import registerAssetRoute from "./routes/registerAssetRoute.js";
+import assetsRouter from "./routes/assetsRouter.js";
 
 //This is to let the server accept JSON data in the request body
 app.use(express.json());
@@ -21,7 +21,7 @@ app.use(cors());
 async function testConnection() {
   try {
     const res = await db.query("SELECT * FROM equipamentos");
-    console.log(res.rows || "No data found");
+    console.log(res.rows);
   } catch (error) {
     console.error("Error connecting to the database: ", error.message);
   }
@@ -29,6 +29,6 @@ async function testConnection() {
 
 testConnection();
 
-app.use("/assets", registerAssetRoute);
+app.use("/assets", assetsRouter);
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
