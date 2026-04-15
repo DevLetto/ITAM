@@ -1,4 +1,4 @@
-import {registerAsset} from "../models/registerAsset.js";
+import {createAsset} from "../models/createAsset.js";
 
 //Controller function to handle asset registration requests
 export default async function registerAssetController(req, res) {
@@ -8,6 +8,6 @@ export default async function registerAssetController(req, res) {
     return res.status(201).json({ message: "Asset registered successfully" });
   } catch (error) {
     console.error("Error in registerAssetController: ", error.message);
-    return res.status(500).json({ error: "Failed to register asset" });
+    return res.status(500).json({ error: "Failed to create asset" });
   }
 }

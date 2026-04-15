@@ -2,7 +2,7 @@ import db from "../database/db.js";
 
 //Function to show all the assets with the type and status filter
 
-export async function showAssets(filters = {}) {
+export async function readAssets(filters = {}) {
   let query = `SELECT * FROM equipamentos`;
   const params = [];
   const where = [];
@@ -31,7 +31,7 @@ export async function showAssets(filters = {}) {
 
     return result.rows;
   } catch (error) {
-    console.error("Error showing assets: ", error.message);
+    console.error("Error reading assets: ", error.message);
     throw error;
   }
 }

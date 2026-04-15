@@ -1,11 +1,13 @@
 import express from "express";
-import register from "../controller/registerAssetController.js";
-import show from "../controller/showAssetsController.js";
+import create from "../controller/createAssetController.js";
+import read from "../controller/readAssetsController.js";
+import update from "../controller/updateAssetsController.js";
 
 //Creating a router for every actions
 const router = express.Router();
 
-router.post("/", register);
-router.get("/", show);
+router.post("/", create);
+router.get("/", read);
+router.put("/:id", update);
 
 export default router;
