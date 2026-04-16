@@ -5,7 +5,8 @@
 }
 
 @theme {
-  --color-back: #f8f9fa;
-  --color-btnBack: #F0803D;
-  --color-btnHover: #F6F6F6;
+  --color-back: #F0F1F6;
+  --color-container: #FDFDFD;
+  --color-btnBack: #0368DE;
+  --color-other: #F5F6F9;
 }

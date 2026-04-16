@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function RegisterAsset() {
   const navigate = useNavigate();
@@ -38,10 +38,32 @@ function RegisterAsset() {
     }
   };
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden"; 
+
+    return () => {
+      document.body.style.overflow = "auto"; 
+    };
+  }, []);
+
   return (
-    <main className="w-screen h-screen bg-back flex items-center justify-center">
-      <form onSubmit={handleSubmit}>
-        <section className="w-100 h-150  border rounded-lg flex flex-col items-center p-2 justify-evenly">
+    <main className="w-screen h-screen bg-back flex flex-col items-center gap-20 border ">
+      <header className="w-full p-2 flex items-start">
+        <button onClick={() => navigate("/")}>
+          <span className="text-xl text-red-600 font-[Arial]">Voltar</span>
+        </button>
+
+      </header>
+      <form
+        onSubmit={handleSubmit}
+        className="w-full md:w-200 flex flex-col items-center justify-center"
+      >
+        {registerDone && (
+          <p className="text-green-500 text-xl mb-4 text-center font-[Arial]">
+            Ativo cadastrado com sucesso! Redirecionando...
+          </p>
+        )}
+        <section className="w-[95%] h-150  border rounded-lg flex flex-col items-center p-2 justify-evenly">
           <fieldset className="flex flex-col  w-full">
             <label className="text-xl font-[Arial]">Nome</label>
             <input
@@ -49,7 +71,7 @@ function RegisterAsset() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="border rounded-lg h-15 text-xl p-2"
+              className="border rounded-lg h-15 text-xl p-2 font-[Arial]"
             />
           </fieldset>
           <fieldset className="flex flex-col  w-full">
@@ -58,7 +80,7 @@ function RegisterAsset() {
               required
               value={type}
               onChange={(e) => setType(e.target.value)}
-              className="border rounded-lg h-15 text-xl p-2"
+              className="border rounded-lg h-15 text-xl p-2 font-[Arial]"
             >
               <option value="" disabled></option>
               <option value="Monitor">Monitor</option>
@@ -72,7 +94,7 @@ function RegisterAsset() {
               required
               value={status}
               onChange={(e) => setStatus(e.target.value)}
-              className="border rounded-lg h-15 text-xl p2"
+              className="border rounded-lg h-15 text-xl p2 font-[Arial]"
             >
               <option value="" disabled></option>
               <option value="Ativo">Ativo</option>
@@ -85,12 +107,15 @@ function RegisterAsset() {
               type="date"
               value={acquisitionDate}
               onChange={(e) => setDate(e.target.value)}
-              className="border rounded-lg h-15 text-xl p-2"
+              className="border rounded-lg h-15 text-xl p-2 font-[Arial]"
             />
           </fieldset>
         </section>
 
-        <button type="submit" className="border rounded-lg h-15 w-full mt-3 text-xl hover:bg-gray-400 active:bg-gray-400">
+        <button
+          type="submit"
+          className="border  border-black rounded-lg h-15 w-[95%] mt-3 text-xl bg-btnBack text-white font-[Arial]"
+        >
           Cadastrar
         </button>
       </form>
