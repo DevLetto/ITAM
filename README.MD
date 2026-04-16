@@ -1,4 +1,4 @@
-# Equipment Management System
+# IT Asset Management
 
 This project is a full-stack application built using:
 
