@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+@theme {
+  --color-back: #f8f9fa;
+  --color-btnBack: #F0803D;
+  --color-btnHover: #F6F6F6;
+}
